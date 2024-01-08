@@ -86,8 +86,9 @@ public class HashTable {
 
 		System.out.println();
 	}
-	
+
 	/*
+
 	 * The given instruction requires a 10 unique elements 
 	 * contains method iterates through the table to check if a value is equal to the number
 	 * returns true if not unique while false if considered unique
@@ -101,6 +102,7 @@ public class HashTable {
 	}
 
 	/*
+
 	 * We use the initResize so that the values will only iterates for 10 times
 	 * after that it will create now a another visual look of table we do this since
 	 * its gonna be long in the console if it printed one value per 17 times (as the
