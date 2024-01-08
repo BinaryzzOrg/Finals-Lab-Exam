@@ -55,9 +55,8 @@ public class Main {
 						System.out.println("Number is not unique, already in the table");
 					} else {
 						break;
-					}
-
-				}
+					} // end if else
+				} // end while
 
 				hashTable.put(valueToCheckBeforePutting);
 
