@@ -96,12 +96,6 @@ public class Main {
 	}// end method
 	
 	
-	public static void CheckUniqueNess() {
-		
-		
-	}
-	
-	
 	
 	/*
 	 * The CheckUserInput method scans the user's input and checks if it is an
