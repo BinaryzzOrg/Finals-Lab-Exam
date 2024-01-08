@@ -38,12 +38,29 @@ public class Main {
 	public static void Menu() {
 		System.out.print(PrintMenuChoices());
 
+		/*
+		 * case 1 checks first if the first inputted number corresponds to its data type
+		 * next it will check if the hashtable if it constains the same value
+		 */
 		switch (CheckUserInput(PrintMenuChoices())) {
 		case 1: {// AddA
 			int Counter = 10;
+			int valueToCheckBeforePutting;
 			for (int index = 0; index < Counter; index++) {
-				System.out.print("Enter a number : ");
-				hashTable.put(CheckUserInput("Enter a number: "));
+				while (true) {
+					System.out.print("Enter a number : ");
+					valueToCheckBeforePutting = CheckUserInput("Enter a number : ");
+
+					if (hashTable.contains(valueToCheckBeforePutting)) {
+						System.out.println("Number is not unique, already in the table");
+					} else {
+						break;
+					}
+
+				}
+
+				hashTable.put(valueToCheckBeforePutting);
+
 			} // end for
 
 			hashTable.ViewingTheTable(0);
