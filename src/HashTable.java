@@ -56,7 +56,7 @@ public class HashTable {
 	private void performLinearProbing(int hashkey, int value) {
 		while (getHashtable()[hashkey] != -1) {
 			++hashkey;
-			System.out.println("Collision Spotted, performing Linear Probing...\nLet's try with " + hashkey);
+			System.out.println("Collision Spotted, performing Linear Probing...\nLet's try with table index " + hashkey);
 			hashkey %= DEFAULTSIZE;
 		}
 
@@ -88,6 +88,21 @@ public class HashTable {
 	}
 
 	/*
+
+	 * The given instruction requires a 10 unique elements 
+	 * contains method iterates through the table to check if a value is equal to the number
+	 * returns true if not unique while false if considered unique
+	 */
+	public boolean contains(int inputNumber) {
+		for (int valueInTable: getHashtable()) {
+			if (valueInTable == inputNumber) return true;
+		}
+		
+		return false;
+	}
+
+	/*
+
 	 * We use the initResize so that the values will only iterates for 10 times
 	 * after that it will create now a another visual look of table we do this since
 	 * its gonna be long in the console if it printed one value per 17 times (as the
