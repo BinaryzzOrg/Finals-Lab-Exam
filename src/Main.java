@@ -4,21 +4,27 @@ public class Main {
 
 	public static void runnable(HashTable hashtable) {
 
-		System.out.println(hashtable.setGrid('-', 60));
+		hashtable.setGrid('-', 60);
 		System.out.println("\tWelcome to Java Hash-Table");
-		System.out.println(hashtable.setGrid('-', 60));
+		hashtable.setGrid('-', 60);
 		System.out.println("\tOperations");
-		System.out.println(hashtable.setGrid('-', 60));
+		hashtable.setGrid('-', 60);
 
 		System.out.println("\t[1] Put (Put a value in the table)");
 		System.out.println("\t[2] View (View the table)");
 		System.out.println("\t[3] Terminate (Close the program)");
 
-		System.out.println(hashtable.setGrid('-', 60));
+		hashtable.setGrid('-', 60);
 
 		System.out.println("Response: ");
 
 	}
+	/*
+	 * Simple menu driven program
+	 * has a do while to repeat iteration of process
+	 * has a checker to and prompt 10 times only as the instruction provided
+	 * validation of range from 1-30
+	 */
 
 	public static void main(String[] args) {
 		HashTable hashtable = new HashTable();
@@ -36,17 +42,23 @@ public class Main {
 
 			switch (userChoice) {
 			case 1:
-				System.out.println(hashtable.setGrid('-', 60));
-
+				hashtable.setGrid('-', 60);
+				
+				int userInputtedNum;
 				System.out.println("Enter numbers ranging 1 - 30 only\nAccepting 10 numbers only:  ");
 
 				for (int idxForPrompting = 0; idxForPrompting < 10; idxForPrompting++) {
-					int userInputtedNum;
-
-					do {
+					
+					while (true) {
 						userInputtedNum = sc.nextInt();
-					} while (userInputtedNum < 1 || userInputtedNum > 30);
-
+						if (userInputtedNum >= 1 && userInputtedNum <= 30) {
+							break;
+						} else {
+							System.out.println("Accepting values from 1- 30 only ");
+						}
+						
+					}
+					System.out.println("That's " + (idxForPrompting + 1) + ", Keep typing number!!!");
 					hashtable.put(userInputtedNum);
 				}
 
@@ -54,7 +66,7 @@ public class Main {
 
 			case 2:
 				
-				System.out.print(hashtable.toString());
+				hashtable.ViewingTheTable(0);
 
 				break;
 
