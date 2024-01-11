@@ -91,6 +91,7 @@ public class HashTable {
 	 * The given instruction requires a 10 unique elements 
 	 * contains method iterates through the table to check if a value is equal to the number
 	 * returns true if not unique while false if considered unique
+	 * Used later in the add (o(n)
 	 */
 	public boolean contains(int inputNumber) {
 		for (int valueInTable: getHashtable()) {

@@ -3,8 +3,9 @@ import java.util.Scanner;
 public class Main {
 	// field variables
 	private static HashTable hashTable = new HashTable();
-
+	static boolean workOnlyOneTime = true;
 	public static void main(String[] args) {
+	
 		Menu();
 	}// end method
 
@@ -42,9 +43,14 @@ public class Main {
 		 * case 1 checks first if the first inputted number corresponds to its data type
 		 * next it will check if the hashtable if it constains the same value 
 		 */
+		
+		
 		switch (CheckUserInput(PrintMenuChoices())) {
+		
 		case 1: {// AddA
+			if (workOnlyOneTime) {
 			int Counter = 10;
+			
 			int valueToCheckBeforePutting;
 			for (int index = 0; index < Counter; index++) {
 				while (true) {
@@ -62,8 +68,16 @@ public class Main {
 				hashTable.put(valueToCheckBeforePutting);
 
 			} // end for
+			
+			
+			
+			workOnlyOneTime = false;
 
 			hashTable.ViewingTheTable(0);
+			} else {
+				System.out.println("Not allowed to add now since adding to another 10 unique elements will result in overflow");
+			}
+			
 			break;
 		}
 
