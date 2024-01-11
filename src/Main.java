@@ -3,8 +3,9 @@ import java.util.Scanner;
 public class Main {
 	// field variables
 	private static HashTable hashTable = new HashTable();
-
+	static boolean workOnlyOneTime = true;
 	public static void main(String[] args) {
+	
 		Menu();
 	}// end method
 
@@ -37,16 +38,46 @@ public class Main {
 	 */
 	public static void Menu() {
 		System.out.print(PrintMenuChoices());
-
+		
+		/*
+		 * case 1 checks first if the first inputted number corresponds to its data type
+		 * next it will check if the hashtable if it constains the same value 
+		 */
+		
+		
 		switch (CheckUserInput(PrintMenuChoices())) {
+		
 		case 1: {// AddA
+			if (workOnlyOneTime) {
 			int Counter = 10;
+			
+			int valueToCheckBeforePutting;
 			for (int index = 0; index < Counter; index++) {
-				System.out.print("Enter a number : ");
-				hashTable.put(CheckUserInput("Enter a number: "));
+				while (true) {
+					System.out.print("Enter a number : ");
+					valueToCheckBeforePutting = CheckUserInput("Enter a number : ");
+
+					if (hashTable.contains(valueToCheckBeforePutting)) {
+						System.out.println("Number is not unique, already in the table");
+					} else {
+						break;
+					}
+
+				}
+
+				hashTable.put(valueToCheckBeforePutting);
+
 			} // end for
+			
+			
+			
+			workOnlyOneTime = false;
 
 			hashTable.ViewingTheTable(0);
+			} else {
+				System.out.println("Not allowed to add now since adding to another 10 unique elements will result in overflow");
+			}
+			
 			break;
 		}
 
@@ -77,7 +108,9 @@ public class Main {
 
 		Menu();
 	}// end method
-
+	
+	
+	
 	/*
 	 * The CheckUserInput method scans the user's input and checks if it is an
 	 * integer. If the input is an integer, it is stored in the 'value' variable and
