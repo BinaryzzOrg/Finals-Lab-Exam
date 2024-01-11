@@ -56,7 +56,6 @@ public class HashTable {
 	private void performLinearProbing(int hashkey, int value) {
 		while (getHashtable()[hashkey] != -1) {
 			++hashkey;
-			System.out.println("Collision Spotted, performing Linear Probing...\nLet's try with table index " + hashkey);
 			hashkey %= DEFAULTSIZE;
 		}
 
